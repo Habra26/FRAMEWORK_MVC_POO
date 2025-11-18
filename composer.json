@@ -2,7 +2,8 @@
   "name": "arnau/framework_mvc_poo",
   "autoload": {
     "psr-4": {
-      "App\\Controllers\\": "app/controllers/"
+      "App\\Controllers\\": "app/controllers/",
+      "Core\\": "core/"
     }
   },
   "authors": [
