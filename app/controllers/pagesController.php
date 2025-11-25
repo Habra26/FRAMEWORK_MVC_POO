@@ -6,10 +6,10 @@ use \PDO, \App\Models\BooksRepository, \App\Models\AuthorsRepository;
 
 abstract class PagesController
 {
-    public static function homeAction(PDO $conn)
+    public static function homeAction()
     {
-        $books = BooksRepository::findAll($conn, 3);
-        $authors = AuthorsRepository::findAll($conn, 3);
+        $books = BooksRepository::findAll( 3);
+        $authors = AuthorsRepository::findAll( 3);
 
         global $content, $title;
         ob_start();

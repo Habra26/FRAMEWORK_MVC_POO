@@ -6,4 +6,4 @@
 // ACTION: homeAction
 
 
-\App\Controllers\PagesController::homeAction($conn);
+\App\Controllers\PagesController::homeAction();
