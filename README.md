@@ -1,1 +1,3 @@
-# FRAMEWORK_MVC_POO
+# FRAMEWORK MVC POO
+## Traduction progressive d'un framework PHP vers du POO
+

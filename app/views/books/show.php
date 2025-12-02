@@ -1,4 +1,6 @@
-<h2 class="text-3xl"><?php echo $book->title; ?></h2>
+<h2 class="text-3xl">
+    <?php echo $book->title; ?>
+</h2>
 <div>
     <?php echo $book->resume; ?>
 </div>

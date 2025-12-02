@@ -1,13 +1,12 @@
 <?php
 
 if (isset($_GET['books'])):
-    include_once '../app/routers/books/books.php';
+    include_once '../app/routers/books.php';
 
-    // ROUTE PAR DEFAUT
-// PATERN: /
+// ROUTE PAR DÉFAUT
+// PATTERN: /
 // CTRL: pagesController
-// ACTION: homeAction
-
+// ACTION: home
 else:
     \App\Controllers\PagesController::homeAction();
 endif;

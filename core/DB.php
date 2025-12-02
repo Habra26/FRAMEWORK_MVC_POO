@@ -6,12 +6,12 @@ use \PDO, \PDOException;
 
 abstract class DB
 {
-    private static $connection = null;
+    private static $connection;
 
     private static function setConnection()
     {
         try {
-            self::$connection = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+            SELF::$connection = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -19,10 +19,9 @@ abstract class DB
 
     public static function getConnection()
     {
-        if (self::$connection === null):
-            self::setConnection();
+        if (!SELF::$connection):
+            SELF::setConnection();
         endif;
-        return self::$connection;
+        return SELF::$connection;
     }
 }
-

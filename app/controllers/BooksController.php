@@ -6,7 +6,7 @@ use \App\Models\BooksRepository;
 
 abstract class BooksController
 {
-    public static function showAction(int $id)
+    public static function showAction(int $id): void
     {
         $book = BooksRepository::findOneById($id);
 
@@ -17,5 +17,3 @@ abstract class BooksController
         $content = ob_get_clean();
     }
 }
-
-

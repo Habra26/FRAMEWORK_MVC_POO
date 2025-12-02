@@ -4,13 +4,40 @@ namespace Core;
 
 abstract class Helpers
 {
-    public static function truncate(string $string, int $lg_max = 100): string
+
+    public static function truncate(string $text, int $length = 100): string
     {
-        if (strlen($string) > $lg_max):
-            $string = substr($string, 0, $lg_max);
-            $last_space = strrpos($string, " ");
-            return substr($string, 0, $last_space) . "...";
-        endif;
-        return $string;
+        if (strlen($text) > $length) {
+            $cut = substr($text, 0, $length);
+            $cut = substr($cut, 0, strrpos($cut, ' '));
+            return $cut . '...';
+        } else {
+            return $text;
+        }
+    }
+
+    public static function slugify(string $text): string
+    {
+        // Strip html tags
+        $text = strip_tags($text);
+        // Replace non letter or digits by -
+        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+        // Transliterate
+        setlocale(LC_ALL, 'en_US.utf8');
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        // Remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+        // Trim
+        $text = trim($text, '-');
+        // Remove duplicate -
+        $text = preg_replace('~-+~', '-', $text);
+        // Lowercase
+        $text = strtolower($text);
+        // Check if it is empty
+        if (empty($text)) {
+            return 'n-a';
+        }
+        // Return result
+        return $text;
     }
 }

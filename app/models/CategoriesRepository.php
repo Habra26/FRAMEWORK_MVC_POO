@@ -9,8 +9,8 @@ abstract class CategoriesRepository
     public static function findAll(): array
     {
         $sql = "SELECT *
-                FROM categories
-                ORDER BY name ASC;";
+            FROM categories
+            ORDER BY name ASC;";
         $rs = DB::getConnection()->query($sql);
         return $rs->fetchAll(PDO::FETCH_CLASS, Category::class);
     }
@@ -25,7 +25,4 @@ abstract class CategoriesRepository
         $rs->execute();
         return $rs->fetchObject(Category::class);
     }
-
 }
-
-

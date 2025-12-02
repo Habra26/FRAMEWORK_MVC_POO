@@ -5,8 +5,7 @@
         <div class="space-y-10">
             <?php echo $content; ?>
         </div>
-
-        <!-- ASIDE CATEGORIES -->
         <?php include '../app/views/templates/partials/_aside.php'; ?>
+
     </div>
 </main>

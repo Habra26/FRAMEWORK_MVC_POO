@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use \PDO, \App\Models\BooksRepository, \App\Models\AuthorsRepository;
+use \App\Models\BooksRepository, \App\Models\AuthorsRepository;
 
 abstract class PagesController
 {
     public static function homeAction()
     {
-        $books = BooksRepository::findAll( 3);
-        $authors = AuthorsRepository::findAll( 3);
+        $books = BooksRepository::findAll(3);
+        $authors = AuthorsRepository::findAll(3);
 
         global $content, $title;
         ob_start();
@@ -17,5 +17,3 @@ abstract class PagesController
         $content = ob_get_clean();
     }
 }
-
-
